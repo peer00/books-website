@@ -9,6 +9,7 @@
     <h1>Books [Liber]ated</h1>
 
     <div id="welcome">
+    <REPLACEINTRO><h3>Welcome to the Books page</h3> <br>The project objectives of this project were the following:<ul><li> Scalability </li><li> Dynamically generated </li><li> Aethetically pleasing </li></ul></REPLACEINTRO>
     <p><REPLACEME></p>
     </div>
 

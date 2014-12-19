@@ -66,15 +66,27 @@ img {
   width: 25%;
   float: left;
   overflow-y: auto;
+  overflow-x: hidden;
   margin-left: 25px;
 }
 
-ul {
+#welcome REPLACEINTRO {
+  font-family: Arial;
+  font-weight: 90;
+  color: rgba(28, 51, 64, 0.6);
+  /*text-align: center;*/
+  vertical-align: middle;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+}
+
+#menu ul {
   list-style-type: none;
   list-style-position: outside;
 }
 
-li{
+#menu ul li{
   vertical-align: middle;
   height: 100px;
 }

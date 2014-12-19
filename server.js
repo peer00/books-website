@@ -13,7 +13,7 @@ var server = http.createServer(function(req,res){
 
   var htmlGen = {
     books : function(obj) {
-      var string = "<li><img src=" + obj.pic + "><a href=" + obj.file + ">" + obj.title + "</a></li>";
+      var string = "<li><img src=" + obj.pic + "><a href=" + obj.file + ">" + obj.niceTitle(obj.title) + "</a></li>";
       return string;
     },
   };
@@ -26,6 +26,20 @@ var server = http.createServer(function(req,res){
       pic : title.slice(0,title.length-4)+".jpg",
       html : "",
       bookText : "",
+      niceTitle : function(str) {
+
+          newArray = [];
+          newArray.push(str[0].toUpperCase())
+          for(var i = 1; i < str.length; i++){
+            if(str[i] === str[i].toUpperCase()) {
+              newArray.push( " " + str[i] )
+            }
+            else {
+              newArray.push(str[i] )
+            }
+          }
+          return newArray.join("")
+        },
     }
     return gen;
   };
@@ -89,8 +103,9 @@ var server = http.createServer(function(req,res){
 
         var htmlTextBook = htmlText.replace("<REPLACEME>", bookText2.join("\n"));
         var htmlLi = htmlTextBook.replace("<REPLACELI>", html.join(" "));
+        var htmlIntro = htmlLi.replace(/<REPLACEINTRO>.+<\/REPLACEINTRO>/, "");
 
-        res.end(htmlLi);
+        res.end(htmlIntro);
 
       });
     });
